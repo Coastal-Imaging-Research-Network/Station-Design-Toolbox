@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<!-- Created with Matlab (R) googlePlot toolbox $Revision: 10138 $ $Date: 2014-02-05 07:23:46 -0600 (Wed, 05 Feb 2014) $ from OpenEarthTools http://www.OpenEarth.eu-->
+<Document>
+<name>FootprintCamera1</name>
+<snippet></snippet>
+<description></description>
+<visibility>1</visibility>
+<open></open>
+<Style id="style1">
+<LineStyle>
+<color>FFFFFFFF</color>
+<width>1</width>
+</LineStyle>
+<PolyStyle>
+<color>4D0000FF</color>
+<outline>0</outline><fill>1</fill>
+
+</PolyStyle>
+</Style>
+<!--############################-->
+<Placemark>
+<TimeSpan><begin>2018-12-17T10:19:42</begin><end>2018-12-17T10:19:42</end></TimeSpan><name></name>
+<styleUrl>#style1</styleUrl>
+<Polygon>
+<altitudeMode>clampToGround</altitudeMode>
+<outerBoundaryIs>
+<LinearRing>
+<tessellate>1</tessellate>
+<coordinates>
+-89.64568487,30.35172320,0.000
+-89.64578689,30.35223393,0.000
+-89.64592083,30.35225658,0.000
+-89.64623724,30.35181658,0.000
+-89.64568487,30.35172320,0.000
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+</Document>
+</kml>
