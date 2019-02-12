@@ -33,6 +33,9 @@ end
 
 
 %%
+%    Developed at Naval Research Laboratory, Stennis Space Center (2019)
+%    Public Release Number: 19-1231-0203
+%
 %    This program is free software: you can redistribute it and/or  
 %    modify it under the terms of the GNU General Public License as 
 %    published by the Free Software Foundation, version 3 of the 
