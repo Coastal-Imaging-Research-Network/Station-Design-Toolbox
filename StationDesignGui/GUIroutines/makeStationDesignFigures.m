@@ -46,85 +46,94 @@ ylabel('Y (m)')
 set(gca,'XLim',limx,'YLim',limy)
 saveas(f,fullfile(outPath,'AlongRangeRes'),'png')
 
-f = figure;
-hold on
-grid on
-imagesc(res{1}.x,res{1}.y, min(dcProj,[],3))
-plot(cxyz(1,1), cxyz(1,2),'*k')
-axis image
-c = colorbar;
-c.Label.String = 'Image Resolution (m)';
-title(['Cross-shore Resolution'])
-xlabel('X (m)')
-ylabel('Y (m)')
-set(gca,'XLim',limx,'YLim',limy)
-saveas(f,fullfile(outPath,'CrossShoreRes'),'png')
+% %% ALONGSHORE/CROSS-SHORE RESOLUTION PLOTS ARE CURRENTLY DISABLED. 
+% % Future versions of this tool may include the ability to specify a 
+% % shoreline orientation in the local coordinate system.
+%
+% f = figure;
+% hold on
+% grid on
+% imagesc(res{1}.x,res{1}.y, min(dcProj,[],3))
+% plot(cxyz(1,1), cxyz(1,2),'*k')
+% axis image
+% c = colorbar;
+% c.Label.String = 'Image Resolution (m)';
+% title(['Cross-shore Resolution'])
+% xlabel('X (m)')
+% ylabel('Y (m)')
+% set(gca,'XLim',limx,'YLim',limy)
+% saveas(f,fullfile(outPath,'CrossShoreRes'),'png')
+% 
+% f = figure;
+% hold on
+% grid on
+% imagesc(res{1}.x,res{1}.y, min(daProj,[],3))
+% plot(cxyz(1,1), cxyz(1,2),'*k')
+% axis image
+% c = colorbar;
+% c.Label.String = 'Image Resolution (m)';
+% title(['Alongshore Resolution'])
+% xlabel('X (m)')
+% ylabel('Y (m)')
+% set(gca,'XLim',limx,'YLim',limy)
+% saveas(f,fullfile(outPath,'AlongShoreRes'),'png')
+%
+%clear f
 
-f = figure;
-hold on
-grid on
-imagesc(res{1}.x,res{1}.y, min(daProj,[],3))
-plot(cxyz(1,1), cxyz(1,2),'*k')
-axis image
-c = colorbar;
-c.Label.String = 'Image Resolution (m)';
-title(['Alongshore Resolution'])
-xlabel('X (m)')
-ylabel('Y (m)')
-set(gca,'XLim',limx,'YLim',limy)
-saveas(f,fullfile(outPath,'AlongShoreRes'),'png')
+% %% ALONGSHORE/CROSS-SHORE RESOLUTION PLOTS ARE CURRENTLY DISABLED. 
+% % Future versions of this tool may include the ability to specify a 
+% % shoreline orientation in the local coordinate system.
+%
+% % contour plot of alongshore/cross-shore resolution
+% 
+% f1 = figure;
+% 
+% maxI = max( max(max(min(daProj,[],3))), max(max(min(dcProj,[],3))) );
+% 
+% v = 0:maxI/20:maxI;
+% colormap(jet(length(v)-1));
+% 
+% subplot(1,2,1)
+% d = min(daProj,[],3);
+% colormap(jet(length(v)-1));
+% contourf( res{1}.x, res{1}.y, d, v );
+% H1 = gca;
+% grid on;
+% title('Alongshore Resolution');
+% xlabel('X (m)');
+% ylabel('Y (m)');
+% axis equal
+% caxis([v(1) v(end)])
+% 
+% subplot(1,2,2)
+% d = min(dcProj,[],3);
+% colormap(jet(length(v)-1));
+% contourf( res{1}.x, res{1}.y, d, v );
+% set(gca,'YTickLabel', '' );
+% H2 = gca;
+% grid on;
+% title('Cross-shore Resolution');
+% xlabel('X (m)');
+% axis equal
+% caxis([v(1) v(end)])
+% 
+% linkaxes([H1 H2]);
+% set(gca,'XLim',limx,'YLim',limy)
+% h2AxPos1 = get(H2,'Position');
+% set(H2,'Position',[h2AxPos1(1)-.093 h2AxPos1(2:4)])
+% 
+% h2AxPos = get(H2,'Position');
+% h1AxPos = get(H1,'Position');
+% 
+% c = colorbar;
+% c.Label.String = 'Image Resolution (m)';
+% set(H2,'Position',h2AxPos)
+% set(H1,'Position',h1AxPos)
+% 
+% saveas(f1,fullfile(outPath,'Resolution_AlongCrossShore_Subplot'),'png')
+% 
+% clear H1 H2 h1AxPos h2AxPos
 
-clear f
-
-% contour plot of alongshore/cross-shore resolution
-
-f1 = figure;
-
-maxI = max( max(max(min(daProj,[],3))), max(max(min(dcProj,[],3))) );
-
-v = 0:maxI/20:maxI;
-colormap(jet(length(v)-1));
-
-subplot(1,2,1)
-d = min(daProj,[],3);
-colormap(jet(length(v)-1));
-contourf( res{1}.x, res{1}.y, d, v );
-H1 = gca;
-grid on;
-title('Alongshore Resolution');
-xlabel('X (m)');
-ylabel('Y (m)');
-axis equal
-caxis([v(1) v(end)])
-
-subplot(1,2,2)
-d = min(dcProj,[],3);
-colormap(jet(length(v)-1));
-contourf( res{1}.x, res{1}.y, d, v );
-set(gca,'YTickLabel', '' );
-H2 = gca;
-grid on;
-title('Cross-shore Resolution');
-xlabel('X (m)');
-axis equal
-caxis([v(1) v(end)])
-
-linkaxes([H1 H2]);
-set(gca,'XLim',limx,'YLim',limy)
-h2AxPos1 = get(H2,'Position');
-set(H2,'Position',[h2AxPos1(1)-.093 h2AxPos1(2:4)])
-
-h2AxPos = get(H2,'Position');
-h1AxPos = get(H1,'Position');
-
-c = colorbar;
-c.Label.String = 'Image Resolution (m)';
-set(H2,'Position',h2AxPos)
-set(H1,'Position',h1AxPos)
-
-saveas(f1,fullfile(outPath,'Resolution_AlongCrossShore_Subplot'),'png')
-
-clear H1 H2 h1AxPos h2AxPos
 
 % contour plot of along-range/cross-range resolution
 
@@ -174,15 +183,12 @@ set(H1,'Position',h1AxPos)
 
 saveas(f2,fullfile(outPath,'Resolution_AlongCrossRange_Subplot'),'png')
 
-
-% convert ll of instrument location to UTM using SuperTrans from OpenEarth Toolbox
-[east, north, logconv] = convertCoordinates(lon, lat, 'CS1.code', 4326,'CS2.code', epsgCode);
-logconv.CS2.name;
-
-
-% plot the footprints of cameras in Google Earth
-
 try
+    % convert ll of instrument location to UTM using SuperTrans from OpenEarth Toolbox
+    [east, north, logconv] = convertCoordinates(lon, lat, 'CS1.code', 4326,'CS2.code', epsgCode);
+    logconv.CS2.name;
+    
+    % plot the footprints of cameras in Google Earth
     for ii = 1:size(az,2)
         % convert footprint based on camera location
         eastVertices = east+XYZVertices{ii}(:,1);
@@ -198,7 +204,7 @@ catch
     warning('Unable to generate KML file, code terminated. Run OpenEarth Toolbox and try again.')
     return
 end
-    
+
 % make a contour plot of resolution in Google Earth
 eastCont = east+res{1}.x;
 northCont = north+ res{1}.y;
