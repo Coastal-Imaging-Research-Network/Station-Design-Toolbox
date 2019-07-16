@@ -19,7 +19,8 @@
 % sensor is provided, in which case ssU = diagonal*sin(atan(NU/NV))
 % and ssV = diagonal*cos(atan(NU/NV)). Sometimes the pixel pitch, or size 
 % in mm of a single pixel, is given. In this case, ssU = pixelPitch*NU and
-% ssV = pixelPitch*NV.
+% ssV = pixelPitch*NV (if pixel pitch is given in micrometers, multiply by
+% 10^-3 to convert to mm).
 %
 
 cflag = 1;
@@ -59,10 +60,18 @@ camList(cflag).NV = 2160;
 camList(cflag).ssU = 6.17;
 camList(cflag).ssV = 4.63;
 
+cflag = 6;
+camList(cflag).cname = 'iPhone 6/6s';  %% Note that iPhone 6/6s has a focal length of 4.15mm
+camList(cflag).NU = 3264;
+camList(cflag).NV = 2448;
+pp = 1.2E-3;  %pixel pitch
+camList(cflag).ssU = pp * camList(cflag).NU;
+camList(cflag).ssV = pp * camList(cflag).NV;
+
 %% Create new camera
 % Fill in variables below:
 %
-% cflag = 6;
+% cflag = 7;
 % camList(cflag).cname = ' ';
 % camList(cflag).NU =       ;
 % camList(cflag).NV =       ;
