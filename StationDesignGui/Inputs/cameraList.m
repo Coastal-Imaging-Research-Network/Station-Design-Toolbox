@@ -49,7 +49,7 @@ cflag = 4;
 camList(cflag).cname = 'Point Grey Blackfly 5.0 MP';
 camList(cflag).NU = 2448;
 camList(cflag).NV = 2048;
-pp = 12E-3;  %pixel pitch
+pp = 3.45E-3;  %pixel pitch
 camList(cflag).ssU = pp * camList(cflag).NU;
 camList(cflag).ssV = pp * camList(cflag).NV;
 
