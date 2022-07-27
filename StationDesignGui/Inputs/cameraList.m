@@ -68,10 +68,18 @@ pp = 1.2E-3;  %pixel pitch
 camList(cflag).ssU = pp * camList(cflag).NU;
 camList(cflag).ssV = pp * camList(cflag).NV;
 
+cflag = 7;
+camList(cflag).cname = 'FLIR Blackfly S BFS-PGE-122S6C-C: 12.3 MP';
+camList(cflag).NU = 4096;
+camList(cflag).NV = 3000;
+pp = 3.45E-3;  %pixel pitch
+camList(cflag).ssU =  pp * camList(cflag).NU;
+camList(cflag).ssV =  pp * camList(cflag).NV;
+
 %% Create new camera
 % Fill in variables below:
 %
-% cflag = 7;
+% cflag = 8;
 % camList(cflag).cname = ' ';
 % camList(cflag).NU =       ;
 % camList(cflag).NV =       ;
